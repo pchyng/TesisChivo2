@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="Windows-1252"?>
+<ScoreListCollection xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Listado>
+    <Items name="Primero">
+      <Points>942</Points>
+    </Items>
+    <Items name="Segundo">
+      <Points>782</Points>
+    </Items>
+    <Items name="Tercero">
+      <Points>782</Points>
+    </Items>
+    <Items name="Cuarto">
+      <Points>766</Points>
+    </Items>
+    <Items name="Quinto">
+      <Points>566</Points>
+    </Items>
+  </Listado>
+</ScoreListCollection>

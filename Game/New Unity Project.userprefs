@@ -1,0 +1,16 @@
+﻿<Properties>
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\SCRIPT\Galleta y Puntaje\PowerTimerAction.cs">
+    <Files>
+      <File FileName="Assets\SCRIPT\PrincesaFly\PrincesavueScript.cs" Line="273" Column="6" />
+      <File FileName="Assets\SCRIPT\Galleta y Puntaje\Puntaje.cs" Line="11" Column="19" />
+      <File FileName="Assets\SCRIPT\ObjGenerator\G_PowerVida.cs" Line="1" Column="1" />
+      <File FileName="Assets\SCRIPT\ObjGenerator\G_PowerTimer.cs" Line="8" Column="26" />
+      <File FileName="Assets\SCRIPT\Galleta y Puntaje\PowerTimerAction.cs" Line="11" Column="15" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+</Properties>
