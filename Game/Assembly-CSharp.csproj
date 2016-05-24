@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+	<Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+	<Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+	<ProductVersion>10.0.20506</ProductVersion>
+	<SchemaVersion>2.0</SchemaVersion>
+	<RootNamespace></RootNamespace>
+	<ProjectGuid>{B2B58FB2-4462-6B0C-A872-40DD957E5FE0}</ProjectGuid>
+	<OutputType>Library</OutputType>
+	<AppDesignerFolder>Properties</AppDesignerFolder>
+	<AssemblyName>Assembly-CSharp</AssemblyName>
+	<TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+	<FileAlignment>512</FileAlignment>
+	<BaseDirectory>Assets</BaseDirectory>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+	<DebugSymbols>true</DebugSymbols>
+	<DebugType>full</DebugType>
+	<Optimize>false</Optimize>
+	<OutputPath>Temp\bin\Debug\</OutputPath>
+	<DefineConstants>DEBUG;TRACE;UNITY_5_2_2;UNITY_5_2;UNITY_5;ENABLE_NEW_BUGREPORTER;ENABLE_2D_PHYSICS;ENABLE_4_6_FEATURES;ENABLE_AUDIO;ENABLE_CACHING;ENABLE_CLOTH;ENABLE_DUCK_TYPING;ENABLE_FRAME_DEBUGGER;ENABLE_GENERICS;ENABLE_HOME_SCREEN;ENABLE_IMAGEEFFECTS;ENABLE_LIGHT_PROBES_LEGACY;ENABLE_MICROPHONE;ENABLE_MULTIPLE_DISPLAYS;ENABLE_PHYSICS;ENABLE_PLUGIN_INSPECTOR;ENABLE_SHADOWS;ENABLE_SINGLE_INSTANCE_BUILD_SETTING;ENABLE_SPRITES;ENABLE_TERRAIN;ENABLE_RAKNET;ENABLE_UNET;ENABLE_UNITYEVENTS;ENABLE_VR;ENABLE_WEBCAM;ENABLE_WWW;ENABLE_CLOUD_SERVICES;ENABLE_CLOUD_SERVICES_ADS;ENABLE_CLOUD_HUB;ENABLE_CLOUD_PROJECT_ID;ENABLE_CLOUD_SERVICES_ANALYTICS;ENABLE_CLOUD_SERVICES_UNET;ENABLE_CLOUD_SERVICES_BUILD;ENABLE_CLOUD_LICENSE;ENABLE_EDITOR_METRICS;ENABLE_REFLECTION_BUFFERS;INCLUDE_DYNAMIC_GI;INCLUDE_GI;INCLUDE_IL2CPP;INCLUDE_DIRECTX12;PLATFORM_SUPPORTS_MONO;RENDER_SOFTWARE_CURSOR;ENABLE_LOCALIZATION;ENABLE_ANDROID_ATLAS_ETC1_COMPRESSION;UNITY_STANDALONE_WIN;UNITY_STANDALONE;ENABLE_SUBSTANCE;ENABLE_TEXTUREID_MAP;ENABLE_RUNTIME_GI;ENABLE_MOVIES;ENABLE_NETWORK;ENABLE_CRUNCH_TEXTURE_COMPRESSION;ENABLE_LOG_MIXED_STACKTRACE;ENABLE_UNITYWEBREQUEST;ENABLE_EVENT_QUEUE;ENABLE_WEBSOCKET_HOST;ENABLE_MONO;ENABLE_PROFILER;UNITY_ASSERTIONS;UNITY_EDITOR;UNITY_EDITOR_64;UNITY_EDITOR_WIN</DefineConstants>
+	<ErrorReport>prompt</ErrorReport>
+	<WarningLevel>4</WarningLevel>
+	<NoWarn>0169</NoWarn>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+	<DebugType>pdbonly</DebugType>
+	<Optimize>true</Optimize>
+	<OutputPath>Temp\bin\Release\</OutputPath>
+	<ErrorReport>prompt</ErrorReport>
+	<WarningLevel>4</WarningLevel>
+	<NoWarn>0169</NoWarn>
+  </PropertyGroup>
+  <ItemGroup>
+	<Reference Include="System" />
+    <Reference Include="System.XML" />
+	<Reference Include="System.Core" />
+	<Reference Include="System.Xml.Linq" />
+	<Reference Include="UnityEngine">
+	  <HintPath>C:/Program Files/Unity/Editor/Data/Managed/UnityEngine.dll</HintPath>
+	</Reference>
+	<Reference Include="UnityEditor">
+	  <HintPath>C:/Program Files/Unity/Editor/Data/Managed/UnityEditor.dll</HintPath>
+	</Reference>
+  </ItemGroup>
+  <ItemGroup>
+     <Compile Include="Assets\GeneraMonstr.cs" />
+     <Compile Include="Assets\GeneraRocas.cs" />
+     <Compile Include="Assets\Objetos\GalletapuntScript.cs" />
+     <Compile Include="Assets\POWER\POWERUP\SalirUpsctipt.cs" />
+     <Compile Include="Assets\PrincesaPiso\PrincesaScript.cs" />
+     <Compile Include="Assets\SCRIPT\Camara\CamaraScript.cs" />
+     <Compile Include="Assets\SCRIPT\Controllers\MutearSonido.cs" />
+     <Compile Include="Assets\SCRIPT\Controllers\pauseScript.cs" />
+     <Compile Include="Assets\SCRIPT\Galleta y Puntaje\GalletaPuntaje.cs" />
+     <Compile Include="Assets\SCRIPT\Galleta y Puntaje\PowerShieldAction.cs" />
+     <Compile Include="Assets\SCRIPT\Galleta y Puntaje\PowerStarAction.cs" />
+     <Compile Include="Assets\SCRIPT\Galleta y Puntaje\PowerTimerAction.cs" />
+     <Compile Include="Assets\SCRIPT\Galleta y Puntaje\PowerVidaAction.cs" />
+     <Compile Include="Assets\SCRIPT\Galleta y Puntaje\Puntaje.cs" />
+     <Compile Include="Assets\SCRIPT\Galleta y Puntaje\totales.cs" />
+     <Compile Include="Assets\SCRIPT\LogicalFloor\LogicalFlo.cs" />
+     <Compile Include="Assets\SCRIPT\MonAtras\MovimientoAtrasMontScript.cs" />
+     <Compile Include="Assets\SCRIPT\Monstruos\VelocidadATI.cs" />
+     <Compile Include="Assets\SCRIPT\MontMonta\MovimientoMontañaScript.cs" />
+     <Compile Include="Assets\SCRIPT\MontPeq\MovimientoPequeMontScript.cs" />
+     <Compile Include="Assets\SCRIPT\Montaña\montañasScript.cs" />
+     <Compile Include="Assets\SCRIPT\MovArbol\MovimientoArbolScript.cs" />
+     <Compile Include="Assets\SCRIPT\MovCielo\MovimientoCieloScript.cs" />
+     <Compile Include="Assets\SCRIPT\MovNubes\MovimientonubesScript.cs" />
+     <Compile Include="Assets\SCRIPT\MovNubes\NubesScript.cs" />
+     <Compile Include="Assets\SCRIPT\ObjGenerator\G_PowerShield.cs" />
+     <Compile Include="Assets\SCRIPT\ObjGenerator\G_PowerStar.cs" />
+     <Compile Include="Assets\SCRIPT\ObjGenerator\G_PowerTimer.cs" />
+     <Compile Include="Assets\SCRIPT\ObjGenerator\G_PowerVida.cs" />
+     <Compile Include="Assets\SCRIPT\ObjGenerator\Generator.cs" />
+     <Compile Include="Assets\SCRIPT\PlayScript.cs" />
+     <Compile Include="Assets\SCRIPT\PrincesaFly\PrincesaStatic.cs" />
+     <Compile Include="Assets\SCRIPT\PrincesaFly\PrincesavueScript.cs" />
+     <Compile Include="Assets\SCRIPT\Scores\Config.cs" />
+     <Compile Include="Assets\SCRIPT\Scores\ConfigManager.cs" />
+     <Compile Include="Assets\SCRIPT\Scores\Score.cs" />
+     <Compile Include="Assets\SCRIPT\Scores\ScoreList.cs" />
+     <Compile Include="Assets\SCRIPT\SecuDupl\FondoInfinitoScript.cs" />
+     <Compile Include="Assets\SCRIPT\SecuDupl\SecuenciaRepetida.cs" />
+     <Compile Include="Assets\pausaboton.cs" />
+     <None Include="Assets\Readme.txt" />
+     <None Include="Assets\Scores\config.xml" />
+     <None Include="Assets\Scores\scores.xml" />
+ <Reference Include="UnityEngine.Advertisements">
+ <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/Advertisements/UnityEngine.Advertisements.dll</HintPath>
+ </Reference>
+ <Reference Include="UnityEngine.UI">
+ <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
+ </Reference>
+ <Reference Include="UnityEngine.Networking">
+ <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/Networking/UnityEngine.Networking.dll</HintPath>
+ </Reference>
+ <Reference Include="UnityEngine.Analytics">
+ <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/UnityAnalytics/UnityEngine.Analytics.dll</HintPath>
+ </Reference>
+ <Reference Include="Mono.Cecil">
+ <HintPath>C:/Program Files/Unity/Editor/Data/Managed/Mono.Cecil.dll</HintPath>
+ </Reference>
+ <Reference Include="UnityEditor.iOS.Extensions.Xcode">
+ <HintPath>C:/Program Files/Unity/Editor/Data/PlaybackEngines/iOSSupport/UnityEditor.iOS.Extensions.Xcode.dll</HintPath>
+ </Reference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+	   Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+  
+</Project>
