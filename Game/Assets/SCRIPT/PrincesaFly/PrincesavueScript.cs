@@ -108,9 +108,12 @@ public class PrincesavueScript : MonoBehaviour {
 			}
 			GameObject.Find ("UpM3").GetComponent<SpriteRenderer> ().enabled = true;
 			GameObject.Find("CascoM1").GetComponent<SpriteRenderer>().enabled = true;
+			GameObject.Find("PowerExploC02").GetComponent<SpriteRenderer>().enabled = true;
+		
 		} else {
 			GameObject.Find("UpM3").GetComponent<SpriteRenderer>().enabled = false;
 			GameObject.Find("CascoM1").GetComponent<SpriteRenderer>().enabled = false;
+			GameObject.Find("PowerExploC02").GetComponent<SpriteRenderer>().enabled = false;
 		}
 
 		if (powerVida) {
