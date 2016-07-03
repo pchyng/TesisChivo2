@@ -12,9 +12,11 @@ public class MutearSonido : MonoBehaviour {
 	string lPath;
 
 	void Start() {
-		lPath = (Application.platform == RuntimePlatform.Android) ?
-			(Application.streamingAssetsPath + "!/assets/Scores/config.xml") :
-				Path.Combine (Path.Combine (Application.dataPath, "Scores"), "config.xml");
+		lPath=Path.Combine (Path.Combine (Application.persistentDataPath, "assets/Scores"), "config.xml");
+		//#if UNITY_ANDROID
+		//	lPath= Application.streamingAssetsPath + "/assets/Scores/config.xml";
+		//#endif
+
 
 //		var lPath = Application.streamingAssetsPath + "!/assets/Scores/config.xml";
 
