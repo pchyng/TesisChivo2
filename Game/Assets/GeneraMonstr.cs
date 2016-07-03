@@ -34,7 +34,7 @@ public class GeneraMonstr : MonoBehaviour {
 	void Update (){
 		int lrand = (int)(Random.Range (0, 100));
 		elapsetTime = elapsetTime + Time.deltaTime*10f;
-		Debug.Log ("AM " + actualMonsterNumber + " Time " + elapsetTime);
+		//Debug.Log ("AM " + actualMonsterNumber + " Time " + elapsetTime);
 		bool isDead = GameObject.Find("Jugador").GetComponent<PrincesavueScript>().muerte;
 
 		if (actualMonsterNumber < maxMonsterNumber && !isDead){

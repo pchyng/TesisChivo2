@@ -12,7 +12,7 @@ public class LluviaScript : MonoBehaviour {
 	void Update () {
 		lluviaTiempo += Time.deltaTime;
 
-		Debug.LogWarning(lluviaTiempo);
+		//Debug.LogWarning(lluviaTiempo);
 		
 		if (lluviaTiempo >= 15f) {
 
