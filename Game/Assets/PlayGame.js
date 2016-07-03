@@ -1,5 +1,4 @@
 ﻿function OnMouseDown ()
-{
-Application.LoadLevel(Random.Range(1, 3));
-
+{	
+	Application.LoadLevel(Mathf.FloorToInt(Random.Range(1f,2f)));
 }
