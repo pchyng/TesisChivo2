@@ -63,6 +63,8 @@ public class PrincesavueScript : MonoBehaviour {
 		if (powerStar) {
 			GameObject.Find("UpM2").GetComponent<SpriteRenderer>().enabled = true;
 			GameObject.Find("StarM1").GetComponent<SpriteRenderer>().enabled = true;
+
+
 			psCoolDown += Time.deltaTime;
 			if (Input.GetKeyDown (KeyCode.Space) || Input.GetMouseButtonDown (0)) {
 				didFlap = true;
@@ -79,13 +81,16 @@ public class PrincesavueScript : MonoBehaviour {
 				psCoolDown=0.0f;
 				GameObject.Find("UpM2").GetComponent<SpriteRenderer>().enabled = false;
 				GameObject.Find("StarM1").GetComponent<SpriteRenderer>().enabled = false;
+
+
 			}
 		}else{
 			if (muerte) {
 				deathCooldown -= Time.deltaTime;
 				if (deathCooldown <= 0) {
 					if (Input.GetKeyDown (KeyCode.Space) || Input.GetMouseButtonDown (0)) {
-						Application.LoadLevel (Application.loadedLevel);
+						//Application.LoadLevel (Application.loadedLevel);
+						Application.LoadLevel(Mathf.FloorToInt(Random.Range(1f,3f)));
 
 					}
 				}
@@ -212,6 +217,7 @@ public class PrincesavueScript : MonoBehaviour {
 				int aux = GameObject.Find("Obstaculos").GetComponent<GeneraRocas>().actualMonsterNumber;
 				GameObject.Find("Obstaculos").GetComponent<GeneraRocas>().actualMonsterNumber = aux-1;
 
+
 			}else{
 				if(powerShield){
 					psCounter-=1;
@@ -224,6 +230,7 @@ public class PrincesavueScript : MonoBehaviour {
 					DestroyObject(collision.gameObject);
 					int aux = GameObject.Find("Obstaculos").GetComponent<GeneraRocas>().actualMonsterNumber;
 					GameObject.Find("Obstaculos").GetComponent<GeneraRocas>().actualMonsterNumber = aux-1;
+
 				}else{
 					if(powerVida){
 						powerVida=false;
