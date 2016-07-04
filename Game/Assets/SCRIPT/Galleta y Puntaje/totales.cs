@@ -15,7 +15,10 @@ public class totales : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		bool isDead = GameObject.Find("Jugador").GetComponent<PrincesavueScript>().muerte;
-		var scoreCollection = ScoreList.Load(Path.Combine(Path.Combine(Application.dataPath,"Scores"),"scores.xml"));
+		var lPath = Application.streamingAssetsPath + "/Scores/scores.xml";
+
+		//var scoreCollection = ScoreList.Load(Path.Combine(Path.Combine(Application.dataPath,"Scores"),"scores.xml"));
+		var scoreCollection = ScoreList.Load(lPath);
 		if(isDead){
 			isDead=true;
 				

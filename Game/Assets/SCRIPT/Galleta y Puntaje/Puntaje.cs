@@ -55,7 +55,10 @@ public class Puntaje : MonoBehaviour {
 		} else {
 			if(!saved){
 				saved=true;
-				var scoreCollection = ScoreList.Load(Path.Combine(Path.Combine(Application.dataPath,"Scores"),"scores.xml"));
+				var lPath = Application.streamingAssetsPath + "/Scores/config.xml";
+
+				//var scoreCollection = ScoreList.Load(Path.Combine(Path.Combine(Application.dataPath,"Scores"),"scores.xml"));
+				var scoreCollection = ScoreList.Load(lPath);
 				//				Debug.LogWarning(serializer.Deserialize(stream));
 				var lScore = new Score ();
 				int auxPints = (int)(dist);
@@ -70,7 +73,7 @@ public class Puntaje : MonoBehaviour {
 						auxPints = aux2;
 					}
 				}
-				scoreCollection.Save(Path.Combine(Path.Combine(Application.dataPath,"Scores"),"scores.xml"),0);
+				scoreCollection.Save(lPath,0);
 				guiText.text ="";
 			}
 			

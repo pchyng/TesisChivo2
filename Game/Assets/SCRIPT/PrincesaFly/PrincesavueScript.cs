@@ -47,8 +47,11 @@ public class PrincesavueScript : MonoBehaviour {
 		AudioSource source2 = GameObject.Find("Camara").GetComponent<AudioSource>();
 		AudioSource source3 = GameObject.Find("Jugador").GetComponent<AudioSource>();
 		
-		//AQUI ESTOY LEYENDO LA CONFIGURACION		
-		var lConfigCollection = ConfigManager.Load(Path.Combine(Path.Combine(Application.dataPath,"Scores"),"config.xml"));
+		//AQUI ESTOY LEYENDO LA CONFIGURACION	
+		var lPath = Application.streamingAssetsPath + "/Scores/config.xml";
+
+		var lConfigCollection = ConfigManager.Load(lPath);
+		//var lConfigCollection = ConfigManager.Load(Path.Combine(Path.Combine(Application.dataPath,"Scores"),"config.xml"));
 
 		//cONGIFURANDO SONIDO, VALORES PERMITIDOS EN config.xml true = un-mute & false = mute
 		var lStatus = lConfigCollection.getConfigs (0).Status;
