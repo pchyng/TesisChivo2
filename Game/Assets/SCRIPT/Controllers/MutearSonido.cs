@@ -12,11 +12,11 @@ public class MutearSonido : MonoBehaviour {
 	string lPath;
 
 	void Start() {
-		lPath=Path.Combine (Path.Combine (Application.persistentDataPath, "assets/Scores"), "config.xml");
+		lPath=Path.Combine (Path.Combine (Application.dataPath, "Scores"), "config.xml");
 		//#if UNITY_ANDROID
+
 		//	lPath= Application.streamingAssetsPath + "/assets/Scores/config.xml";
 		//#endif
-
 
 //		var lPath = Application.streamingAssetsPath + "!/assets/Scores/config.xml";
 
@@ -30,8 +30,8 @@ public class MutearSonido : MonoBehaviour {
 	
 	public void handleMute(){
 		mute = !mute;
-		//var lPath = Application.streamingAssetsPath + "!/assets/Scores/config.xml";
-
+		lPath = Application.streamingAssetsPath + "/Scores/config.xml";
+		//lPath=Path.Combine (Path.Combine (Application.dataPath, "Scores"), "config.xml");
 	//	var lConfigCollection = ConfigManager.Load(Path.Combine(Path.Combine(Application.dataPath,"Scores"),"config.xml"));
 		var lConfigCollection = ConfigManager.Load(lPath);
 		var lConfig = new Config ();
