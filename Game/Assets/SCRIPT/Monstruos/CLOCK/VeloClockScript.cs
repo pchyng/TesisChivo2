@@ -4,8 +4,10 @@ using System.Collections;
 public class VeloClockScript : MonoBehaviour {
 
 	// variable decimal que sea menor a los frame para que se mueva mas lento
-		static float velocidad = -(int)(Random.Range (-5, 10));
-	
+		static float velocidad;
+	void Start () {
+		velocidad = -(int)(Random.Range (-5, 10));
+	}
 	// Update is called once per frame (se hace uso del Fixed para que no haya problemas con la fisica
 	void FixedUpdate () {
 		// vector 3 puesto que toma todos los ejes (x,y,z)

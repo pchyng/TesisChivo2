@@ -16,6 +16,7 @@ public class totales : MonoBehaviour {
 	void Update () {
 		bool isDead = GameObject.Find("Jugador").GetComponent<PrincesavueScript>().muerte;
 		var lPath = Application.streamingAssetsPath + "/Scores/scores.xml";
+		lPath= ConfigManager.getPath("scores.xml");
 
 		//var scoreCollection = ScoreList.Load(Path.Combine(Path.Combine(Application.dataPath,"Scores"),"scores.xml"));
 		var scoreCollection = ScoreList.Load(lPath);

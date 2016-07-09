@@ -6,6 +6,7 @@ using System.Text;
 using System;
 using System.Xml;
 
+
 [RequireComponent(typeof(AudioSource))]
 public class MutearSonido : MonoBehaviour {
 
@@ -16,10 +17,12 @@ public class MutearSonido : MonoBehaviour {
 	void Start() {
 	    lPath = Application.streamingAssetsPath + "/Scores/config.xml";
 		lPath2 = Application.persistentDataPath + "/config.xml";
+		lPath2= ConfigManager.getPath("config.xml");
+
 		try {
 			var lConfigCollection = ConfigManager.Load(lPath2);
 			var lStatus = lConfigCollection.getConfigs (0).Status;
-			mute = lStatus;
+			mute = !lStatus;
 		}
 		catch (Exception e) {
 			createXML (lPath2);
@@ -45,20 +48,20 @@ public class MutearSonido : MonoBehaviour {
 	}
 	
 	public void handleMute(){
-		mute = !mute;
 		lPath = Application.streamingAssetsPath + "/Scores/config.xml";
 		lPath2 = Application.persistentDataPath + "/config.xml";
+		lPath2 = ConfigManager.getPath("config.xml");
 
 
 		var lConfigCollection = ConfigManager.Load(lPath2);
 		var lConfig = new Config ();
 		lConfig = lConfigCollection.getConfigs (0);
-		lConfig.Status = mute;
-		lConfigCollection.Save(lPath,0);
+		lConfig.Status = !lConfig.Status;
+		lConfigCollection.Save(lPath2,0);
 		AudioSource source2 = GameObject.Find("Camara").GetComponent<AudioSource>();
 		AudioSource source3 = GameObject.Find("Jugador").GetComponent<AudioSource>();
-		source2.mute=!mute;
-		source3.mute=!mute;
+		source2.mute=!lConfig.Status;
+		source3.mute=!lConfig.Status;
 	}
 
 	static void createXML(string path) {

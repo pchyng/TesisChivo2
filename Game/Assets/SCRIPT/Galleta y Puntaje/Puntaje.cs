@@ -56,6 +56,7 @@ public class Puntaje : MonoBehaviour {
 			if(!saved){
 				saved=true;
 				var lPath = Application.streamingAssetsPath + "/Scores/config.xml";
+				lPath= ConfigManager.getPath("scores.xml");
 
 				//var scoreCollection = ScoreList.Load(Path.Combine(Path.Combine(Application.dataPath,"Scores"),"scores.xml"));
 				var scoreCollection = ScoreList.Load(lPath);

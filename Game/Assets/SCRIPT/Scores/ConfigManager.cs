@@ -47,4 +47,16 @@ public class ConfigManager{
 		var serializer = new XmlSerializer(typeof(ConfigManager));
 		return serializer.Deserialize(new StringReader(text)) as ConfigManager;
 	}
+
+	public static string getPath(string fileName){
+		#if UNITY_EDITOR
+		return Application.dataPath +"/StreamingAssets/Scores/"+fileName;
+		#elif UNITY_ANDROID
+		return Application.persistentDataPath+"/"+fileName;
+		#elif UNITY_IPHONE
+		return Application.persistentDataPath+"/"+fileName;
+		#else
+		return Application.dataPath +"/"+ fileName;
+		#endif
+	}
 }
