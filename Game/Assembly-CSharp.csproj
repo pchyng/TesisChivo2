@@ -92,7 +92,7 @@
      <Compile Include="Assets\SCRIPT\SecuDupl\FondoInfinitoScript.cs" />
      <Compile Include="Assets\SCRIPT\SecuDupl\SecuenciaRepetida.cs" />
      <Compile Include="Assets\pausaboton.cs" />
-     <None Include="Assets\StreamingAssets\Scores\config2.xml" />
+     <None Include="Assets\StreamingAssets\Scores\scores2.xml" />
      <None Include="Assets\Readme.txt" />
      <None Include="Assets\StreamingAssets\Scores\config.xml" />
      <None Include="Assets\StreamingAssets\test.txt" />
