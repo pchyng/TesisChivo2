@@ -7,7 +7,6 @@ using System.IO;
 
 [XmlRoot("ConfigCollection")]
 
-
 public class ConfigManager{
 	[XmlArray("Listado"),XmlArrayItem("Items")]
 	public Config[] Config;
@@ -16,13 +15,9 @@ public class ConfigManager{
 	{
 		return  Config [i];
 	}
+
 	public void Save(string path,int pos)
-	{
-		//var lScore = new Score ();
-		//lScore.Name="meh";
-		//lScore.Points = (int)GameObject.Find("Puntajes").GetComponent<Puntaje>().dist;
-		//Scores[pos]=lScore;
-		
+	{		
 		var serializer = new XmlSerializer(typeof(ConfigManager));
 		using(var stream = new FileStream(path, FileMode.Create))
 		{
@@ -36,8 +31,6 @@ public class ConfigManager{
 		using(var stream = new FileStream(path, FileMode.Open))
 		{
 			return serializer.Deserialize(stream) as ConfigManager;
-			//	Debug.LogWarning(serializer.Deserialize(stream));
-			
 		}
 	}
 	

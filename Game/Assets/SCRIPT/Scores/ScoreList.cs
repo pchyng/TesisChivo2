@@ -18,11 +18,6 @@ public class ScoreList{
 
 	public void Save(string path,int pos)
 	{
-		//var lScore = new Score ();
-		//lScore.Name="meh";
-		//lScore.Points = (int)GameObject.Find("Puntajes").GetComponent<Puntaje>().dist;
-		//Scores[pos]=lScore;
-
 		var serializer = new XmlSerializer(typeof(ScoreList));
 		using(var stream = new FileStream(path, FileMode.Create))
 		{
@@ -36,8 +31,6 @@ public class ScoreList{
 		using(var stream = new FileStream(path, FileMode.Open))
 		{
 			return serializer.Deserialize(stream) as ScoreList;
-		//	Debug.LogWarning(serializer.Deserialize(stream));
-
 		}
 	}
 	
@@ -46,5 +39,17 @@ public class ScoreList{
 	{
 		var serializer = new XmlSerializer(typeof(ScoreList));
 		return serializer.Deserialize(new StringReader(text)) as ScoreList;
+	}
+
+	public static string getPath(string fileName){
+		#if UNITY_EDITOR
+		return Application.dataPath +"/StreamingAssets/Scores/"+fileName;
+		#elif UNITY_ANDROID
+		return Application.persistentDataPath+"/"+fileName;
+		#elif UNITY_IPHONE
+		return Application.persistentDataPath+"/"+fileName;
+		#else
+		return Application.dataPath +"/"+ fileName;
+		#endif
 	}
 }

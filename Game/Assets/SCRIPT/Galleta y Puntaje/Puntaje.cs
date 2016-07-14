@@ -11,11 +11,10 @@ public class Puntaje : MonoBehaviour {
 	static int score = 0;
 	static int highScore = 0;
 	public float dist = 0f;
-	static bool saved = false;
+	static bool saved;
 	public Transform other;
-
 	string lPath;
-
+	public bool calculoEnd = false;
 	static Puntaje instance;
 
 	static public void AddPoint(){
@@ -30,6 +29,8 @@ public class Puntaje : MonoBehaviour {
 	PrincesavueScript princesa;
 	
 	void Start(){
+		calculoEnd = false;
+		saved = false;
 		instance = this;
 		GameObject player_go = GameObject.FindGameObjectWithTag ("Player");
 		if(player_go == null){
@@ -60,45 +61,55 @@ public class Puntaje : MonoBehaviour {
 		} else {
 			if(!saved){
 				saved=true;
-				lPath = Application.streamingAssetsPath + "/Scores/config.xml";
-				lPath= ConfigManager.getPath("scores.xml");
-			}
-			try {
-				var lConfigCollection = ConfigManager.Load(lPath);
-				var lStatus = lConfigCollection.getConfigs (0);
-				}
-			catch (Exception e) {
-				createXML (lPath);
-				var lConfigCollection = ConfigManager.Load(lPath);
-				var lStatus = lConfigCollection.getConfigs (0);
-			} 
-			//var scoreCollection = ScoreList.Load(Path.Combine(Path.Combine(Application.dataPath,"Scores"),"scores.xml"));
-			var scoreCollection = ScoreList.Load(lPath);
-			//				Debug.LogWarning(serializer.Deserialize(stream));
-			var lScore = new Score ();
-			int auxPints = (int)(dist);
+				lPath= ScoreList.getPath("scores.xml");
 			
-			for (int i = 0; i < 5; i++) {
-				lScore = scoreCollection.getScores(i);
-				Debug.LogWarning(lScore.Name);
-				Debug.LogWarning(lScore.Points);
-				if(lScore.Points<=auxPints){
-					int aux2 = lScore.Points; 
-					lScore.Points = auxPints;
-					auxPints = aux2;
-				}
+				try {
+					var scoreCollection = ScoreList.Load(lPath);
+					var lScore = new Score ();
+					int auxPints = (int)(dist);
+					
+					for (int i = 0; i < 5; i++) {
+						lScore = scoreCollection.getScores(i);
+						Debug.LogWarning(lScore.Name);
+						Debug.LogWarning(lScore.Points);
+						if(lScore.Points<=auxPints){
+							int aux2 = lScore.Points; 
+							lScore.Points = auxPints;
+							auxPints = aux2;
+						}
+					}
+					scoreCollection.Save(lPath,0);
+					guiText.text ="";
+				}catch{
+					createXML (lPath);
+					var scoreCollection = ScoreList.Load(lPath);
+					var lScore = new Score ();
+					int auxPints = (int)(dist);
+					
+					for (int i = 0; i < 5; i++) {
+						lScore = scoreCollection.getScores(i);
+						Debug.LogWarning(lScore.Name);
+						Debug.LogWarning(lScore.Points);
+						if(lScore.Points<=auxPints){
+							int aux2 = lScore.Points; 
+							lScore.Points = auxPints;
+							auxPints = aux2;
+						}
+					}
+					scoreCollection.Save(lPath,0);
+					guiText.text ="";
+				} 
+				var lTotales = GameObject.Find ("Totales2").GetComponent<totales> ();
+				lTotales.test();
 			}
-			scoreCollection.Save(lPath,0);
-			guiText.text ="";
-			}
-
 		}
+	}
 
 	static void createXML(string path) {
 		XmlDocument doc = new XmlDocument( );
 		
 		//(1) the xml declaration is recommended, but not mandatory
-		XmlDeclaration xmlDeclaration = doc.CreateXmlDeclaration( "1.0", "Windows-1252", null );
+		XmlDeclaration xmlDeclaration = doc.CreateXmlDeclaration( "1.0", "UTF-8", null );
 		XmlElement root = doc.DocumentElement;
 		doc.InsertBefore( xmlDeclaration, root );
 		
@@ -111,48 +122,53 @@ public class Puntaje : MonoBehaviour {
 		XmlElement element1 = doc.CreateElement( string.Empty, "Listado", string.Empty );
 		element0.AppendChild( element1 );
 		
-		XmlElement elementPN1 = doc.CreateElement( string.Empty, "Items",  string.Empty );
-		elementPN1.SetAttribute("name","Primero");
-		element1.AppendChild( elementPN1 );
-		XmlElement elementPP1 = doc.CreateElement( string.Empty, "Points", string.Empty );
+		XmlElement element2 = doc.CreateElement( string.Empty, "Items",  string.Empty );
+		element2.SetAttribute("name","Primero");
+		element1.AppendChild( element2 );
+		
+		XmlElement element3 = doc.CreateElement( string.Empty, "Status", string.Empty );
 		XmlText text1 = doc.CreateTextNode( "5" );
-		elementPP1.AppendChild( text1 );
-		elementPN1.AppendChild( elementPP1 );
+		element3.AppendChild( text1 );
+		element2.AppendChild( element3 );
 
-		XmlElement elementPN2 = doc.CreateElement( string.Empty, "Items",  string.Empty );
-		elementPN2.SetAttribute("name","Segundo");
-		element1.AppendChild( elementPN2 );
-		XmlElement elementPP2 = doc.CreateElement( string.Empty, "Points", string.Empty );
+		XmlElement element4 = doc.CreateElement( string.Empty, "Items",  string.Empty );
+		element4.SetAttribute("name","Segundo");
+		element1.AppendChild( element4 );
+		
+		XmlElement element5 = doc.CreateElement( string.Empty, "Status", string.Empty );
 		XmlText text2 = doc.CreateTextNode( "4" );
-		elementPP2.AppendChild( text2 );
-		elementPN2.AppendChild( elementPP2 );
+		element5.AppendChild( text2 );
+		element4.AppendChild( element5 );
 
-		XmlElement elementPN3 = doc.CreateElement( string.Empty, "Items",  string.Empty );
-		elementPN3.SetAttribute("name","Tercero");
-		element1.AppendChild( elementPN3 );
-		XmlElement elementPP3 = doc.CreateElement( string.Empty, "Points", string.Empty );
+		XmlElement element6 = doc.CreateElement( string.Empty, "Items",  string.Empty );
+		element6.SetAttribute("name","Tercero");
+		element1.AppendChild( element6 );
+		
+		XmlElement element7 = doc.CreateElement( string.Empty, "Status", string.Empty );
 		XmlText text3 = doc.CreateTextNode( "3" );
-		elementPP3.AppendChild( text3 );
-		elementPN3.AppendChild( elementPP3 );
+		element7.AppendChild( text3 );
+		element6.AppendChild( element7 );
 
-		XmlElement elementPN4 = doc.CreateElement( string.Empty, "Items",  string.Empty );
-		elementPN4.SetAttribute("name","Cuarto");
-		element1.AppendChild( elementPN4 );
-		XmlElement elementPP4 = doc.CreateElement( string.Empty, "Points", string.Empty );
-		XmlText text4 = doc.CreateTextNode( "2" );
-		elementPP4.AppendChild( text4 );
-		elementPN4.AppendChild( elementPP4 );
+		XmlElement element8 = doc.CreateElement( string.Empty, "Items",  string.Empty );
+		element8.SetAttribute("name","Cuarto");
+		element1.AppendChild( element8 );
+		
+		XmlElement element9 = doc.CreateElement( string.Empty, "Status", string.Empty );
+		XmlText text4 = doc.CreateTextNode( "4" );
+		element9.AppendChild( text4 );
+		element8.AppendChild( element9 );
 
-		XmlElement elementPN5 = doc.CreateElement( string.Empty, "Items",  string.Empty );
-		elementPN5.SetAttribute("name","Quinto");
-		element1.AppendChild( elementPN5 );
-		XmlElement elementPP5 = doc.CreateElement( string.Empty, "Points", string.Empty );
-		XmlText text5 = doc.CreateTextNode( "1" );
-		elementPP5.AppendChild( text5 );
-		elementPN5.AppendChild( elementPP5 );
+		XmlElement element10 = doc.CreateElement( string.Empty, "Items",  string.Empty );
+		element10.SetAttribute("name","Quinto");
+		element1.AppendChild( element10 );
+		
+		XmlElement element11 = doc.CreateElement( string.Empty, "Status", string.Empty );
+		XmlText text5 = doc.CreateTextNode( "5" );
+		element11.AppendChild( text5 );
+		element10.AppendChild( element11 );
 
 		doc.Save( path );
 	}
-	}
+}
 	
 

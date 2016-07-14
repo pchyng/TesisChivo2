@@ -2,19 +2,19 @@
 <ScoreListCollection xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <Listado>
     <Items name="Primero">
-      <Points>5</Points>
+      <Points>158</Points>
     </Items>
     <Items name="Segundo">
-      <Points>4</Points>
+      <Points>112</Points>
     </Items>
     <Items name="Tercero">
-      <Points>3</Points>
+      <Points>98</Points>
     </Items>
     <Items name="Cuarto">
-      <Points>2</Points>
+      <Points>84</Points>
     </Items>
     <Items name="Quinto">
-      <Points>1</Points>
+      <Points>61</Points>
     </Items>
   </Listado>
 </ScoreListCollection>

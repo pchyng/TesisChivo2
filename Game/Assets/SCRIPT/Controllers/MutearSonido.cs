@@ -11,12 +11,9 @@ using System.Xml;
 public class MutearSonido : MonoBehaviour {
 
 	public bool mute;
-	string lPath;
 	string lPath2;
 
 	void Start() {
-	    lPath = Application.streamingAssetsPath + "/Scores/config.xml";
-		lPath2 = Application.persistentDataPath + "/config.xml";
 		lPath2= ConfigManager.getPath("config.xml");
 
 		try {
@@ -37,8 +34,6 @@ public class MutearSonido : MonoBehaviour {
 	}
 	
 	public void handleMute(){
-		lPath = Application.streamingAssetsPath + "/Scores/config.xml";
-		lPath2 = Application.persistentDataPath + "/config.xml";
 		lPath2 = ConfigManager.getPath("config.xml");
 
 
