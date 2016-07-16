@@ -16,7 +16,8 @@ public class Puntaje : MonoBehaviour {
 	string lPath;
 	public bool calculoEnd = false;
 	static Puntaje instance;
-
+	int comparator;
+	bool compared=false;
 	float puntoTiempo = 0f;
 
 	static public void AddPoint(){
@@ -41,7 +42,21 @@ public class Puntaje : MonoBehaviour {
 		princesa = player_go.GetComponent<PrincesavueScript>();
 		score=0;
 		PlayerPrefs.GetInt ("highScore", 0);
-		
+
+
+//AQUI INICIO EL COMPARADOR CON EL MAXIMO PUNTAJE GUARDADO O 0 SI NO HAY UN XML (RECIEN INSTALADO)
+		try {
+			var lPath1= ScoreList.getPath("scores.xml");
+
+			var scoreCollection = ScoreList.Load(lPath1);
+			var lScore=scoreCollection.getScores(0);
+			comparator = lScore.Points;
+//PARA TESTEAR DESCOMENTA LA SIGUIENTE LINEA
+			//comparator = 10;
+
+		}catch{
+			comparator = 0;
+		}
 	}
 	
 	void OnDestroy(){
@@ -62,8 +77,8 @@ public class Puntaje : MonoBehaviour {
 		if (!isDead) {
 
 			int distanciaenmil = (int)(dist);
-
-			if(distanciaenmilt => 1000f ){
+			if(distanciaenmil >= comparator && !compared){
+				compared=true;
 				GameObject.Find("RecorridoM3").GetComponent<SpriteRenderer>().enabled = true;
 				puntoTiempo=5f;
 				GameObject.Find("RecorridoM3").GetComponent<SpriteRenderer>().enabled = false;
@@ -85,8 +100,6 @@ public class Puntaje : MonoBehaviour {
 					
 					for (int i = 0; i < 5; i++) {
 						lScore = scoreCollection.getScores(i);
-						Debug.LogWarning(lScore.Name);
-						Debug.LogWarning(lScore.Points);
 						if(lScore.Points<=auxPints){
 							int aux2 = lScore.Points; 
 							lScore.Points = auxPints;
