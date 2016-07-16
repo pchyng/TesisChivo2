@@ -17,6 +17,8 @@ public class Puntaje : MonoBehaviour {
 	public bool calculoEnd = false;
 	static Puntaje instance;
 
+	float puntoTiempo = 0f;
+
 	static public void AddPoint(){
 		if (instance.princesa.muerte)
 			return;
@@ -49,12 +51,25 @@ public class Puntaje : MonoBehaviour {
 	}
 	
 	void Update (){
+		puntoTiempo += Time.deltaTime;
+
+
+
 		//CON ESTO AGARRAS JUSTO CUANDO MUERE EL PLAYER
 		bool isDead = GameObject.Find("Jugador").GetComponent<PrincesavueScript>().muerte;
 		bool isPowerClock = GameObject.Find("Jugador").GetComponent<PrincesavueScript>().powerClock;
 
 		if (!isDead) {
-			//			dist = Vector3.Distance(other.position, transform.position);
+
+			int distanciaenmil = (int)(dist);
+
+			if(distanciaenmilt => 1000f ){
+				GameObject.Find("RecorridoM3").GetComponent<SpriteRenderer>().enabled = true;
+				puntoTiempo=5f;
+				GameObject.Find("RecorridoM3").GetComponent<SpriteRenderer>().enabled = false;
+				
+			}
+			//dist = Vector3.Distance(other.position, transform.position);
 			dist = isPowerClock ? dist + (Time.deltaTime*10*2):dist + (Time.deltaTime * 10);
 
 			guiText.text = "Galleta: " + score + "\nDistancia: " + (int)(dist);
@@ -99,6 +114,8 @@ public class Puntaje : MonoBehaviour {
 					scoreCollection.Save(lPath,0);
 					guiText.text ="";
 				} 
+
+
 				var lTotales = GameObject.Find ("Totales2").GetComponent<totales> ();
 				lTotales.test();
 			}

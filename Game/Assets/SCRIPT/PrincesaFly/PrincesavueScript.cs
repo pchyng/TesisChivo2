@@ -175,6 +175,10 @@ public class PrincesavueScript : MonoBehaviour {
 			if(powerStar){
 				source = GetComponent<AudioSource>();
 				source.PlayOneShot(crashHard,hitVol);
+				DestroyObject(collision.gameObject);
+				int aux = GameObject.Find("Monstruos").GetComponent<GeneraMonstr>().actualMonsterNumber;
+				GameObject.Find("Monstruos").GetComponent<GeneraMonstr>().actualMonsterNumber = aux-1;
+
 			}else{
 				if(powerShield){
 					psCounter=psCounter-1;
