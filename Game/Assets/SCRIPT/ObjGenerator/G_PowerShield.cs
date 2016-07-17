@@ -32,7 +32,7 @@ public class G_PowerShield : MonoBehaviour {
 	void Update (){
 		int lrand = (int)(Random.Range (0, 100));
 		elapsetTime = elapsetTime + Time.deltaTime;
-		if (elapsetTime > 10) {
+		if (elapsetTime > 30) {
 			if (noPoweShield && lrand > range) {
 				CreatePrefab ();
 				noPoweShield = false;

@@ -14,11 +14,11 @@ public class LluviaScript : MonoBehaviour {
 
 		//Debug.LogWarning(lluviaTiempo);
 		
-		if (lluviaTiempo >= 15f) {
+		if (lluviaTiempo >= 40f) {
 
 			GameObject.Find("lluvia1").GetComponent<SpriteRenderer>().enabled = true;
 			GameObject.Find("lluvia2").GetComponent<SpriteRenderer>().enabled = true;
-			if (lluviaTiempo >= 20f) {
+			if (lluviaTiempo >= 70f) {
 			lluviaTiempo=0.0f;
 			GameObject.Find("lluvia1").GetComponent<SpriteRenderer>().enabled = false;
 			GameObject.Find("lluvia2").GetComponent<SpriteRenderer>().enabled = false;
