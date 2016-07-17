@@ -66,7 +66,7 @@ public class Puntaje : MonoBehaviour {
 	}
 	
 	void Update (){
-		puntoTiempo += Time.deltaTime;
+
 
 
 
@@ -78,11 +78,12 @@ public class Puntaje : MonoBehaviour {
 
 			int distanciaenmil = (int)(dist);
 			if(distanciaenmil >= comparator && !compared){
+				puntoTiempo += Time.deltaTime;
+
 				compared=true;
-				GameObject.Find("RecorridoM3").GetComponent<SpriteRenderer>().enabled = true;
-				puntoTiempo=5f;
-				GameObject.Find("RecorridoM3").GetComponent<SpriteRenderer>().enabled = false;
-				
+				Debug.LogWarning(puntoTiempo);
+				GameObject.Find("recorrido").GetComponent<SpriteRenderer>().enabled = true;
+		
 			}
 			//dist = Vector3.Distance(other.position, transform.position);
 			dist = isPowerClock ? dist + (Time.deltaTime*10*2):dist + (Time.deltaTime * 10);
