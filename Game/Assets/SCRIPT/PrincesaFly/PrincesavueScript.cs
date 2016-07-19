@@ -93,7 +93,7 @@ public class PrincesavueScript : MonoBehaviour {
 				if (deathCooldown <= 0) {
 					if (Input.GetKeyDown (KeyCode.Space) || Input.GetMouseButtonDown (0)) {
 						//Application.LoadLevel (Application.loadedLevel);
-						Application.LoadLevel(Mathf.FloorToInt(Random.Range(1f,3f)));
+						Application.LoadLevel(Mathf.FloorToInt(Random.Range(1f,6f)));
 
 					}
 				}
