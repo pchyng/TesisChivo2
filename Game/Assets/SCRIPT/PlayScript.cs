@@ -17,5 +17,8 @@ public class PlayScript : MonoBehaviour {
 		if(isDead){
 			GetComponent<SpriteRenderer>().enabled = true;
 		}
+		if (Input.GetKeyDown (KeyCode.Escape)) { 
+			Application.Quit ();
+		}
 	}
 }
