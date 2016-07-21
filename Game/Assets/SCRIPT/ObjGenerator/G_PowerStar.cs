@@ -32,7 +32,7 @@ public class G_PowerStar : MonoBehaviour {
 	void Update (){
 		int lrand = (int)(Random.Range (0, 100));
 		elapsetTime = elapsetTime + Time.deltaTime;
-		if (elapsetTime > 5) {
+		if (elapsetTime > 90) {
 			if (noPoweStar && lrand > range) {
 				CreatePrefab ();
 				noPoweStar = false;

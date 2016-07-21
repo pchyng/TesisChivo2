@@ -47,8 +47,11 @@ public class PrincesavueScript : MonoBehaviour {
 		AudioSource source2 = GameObject.Find("Camara").GetComponent<AudioSource>();
 		AudioSource source3 = GameObject.Find("Jugador").GetComponent<AudioSource>();
 		
-		//AQUI ESTOY LEYENDO LA CONFIGURACION		
-		var lConfigCollection = ConfigManager.Load(Path.Combine(Path.Combine(Application.dataPath,"Scores"),"config.xml"));
+		//AQUI ESTOY LEYENDO LA CONFIGURACION	
+		var lPath = Application.streamingAssetsPath + "/Scores/config.xml";
+
+		var lConfigCollection = ConfigManager.Load(lPath);
+		//var lConfigCollection = ConfigManager.Load(Path.Combine(Path.Combine(Application.dataPath,"Scores"),"config.xml"));
 
 		//cONGIFURANDO SONIDO, VALORES PERMITIDOS EN config.xml true = un-mute & false = mute
 		var lStatus = lConfigCollection.getConfigs (0).Status;
@@ -63,6 +66,8 @@ public class PrincesavueScript : MonoBehaviour {
 		if (powerStar) {
 			GameObject.Find("UpM2").GetComponent<SpriteRenderer>().enabled = true;
 			GameObject.Find("StarM1").GetComponent<SpriteRenderer>().enabled = true;
+
+
 			psCoolDown += Time.deltaTime;
 			if (Input.GetKeyDown (KeyCode.Space) || Input.GetMouseButtonDown (0)) {
 				didFlap = true;
@@ -79,13 +84,16 @@ public class PrincesavueScript : MonoBehaviour {
 				psCoolDown=0.0f;
 				GameObject.Find("UpM2").GetComponent<SpriteRenderer>().enabled = false;
 				GameObject.Find("StarM1").GetComponent<SpriteRenderer>().enabled = false;
+
+
 			}
 		}else{
 			if (muerte) {
 				deathCooldown -= Time.deltaTime;
 				if (deathCooldown <= 0) {
 					if (Input.GetKeyDown (KeyCode.Space) || Input.GetMouseButtonDown (0)) {
-						Application.LoadLevel (Application.loadedLevel);
+						//Application.LoadLevel (Application.loadedLevel);
+						Application.LoadLevel(Mathf.FloorToInt(Random.Range(1f,6f)));
 
 					}
 				}
@@ -167,6 +175,10 @@ public class PrincesavueScript : MonoBehaviour {
 			if(powerStar){
 				source = GetComponent<AudioSource>();
 				source.PlayOneShot(crashHard,hitVol);
+				DestroyObject(collision.gameObject);
+				int aux = GameObject.Find("Monstruos").GetComponent<GeneraMonstr>().actualMonsterNumber;
+				GameObject.Find("Monstruos").GetComponent<GeneraMonstr>().actualMonsterNumber = aux-1;
+
 			}else{
 				if(powerShield){
 					psCounter=psCounter-1;
@@ -212,6 +224,7 @@ public class PrincesavueScript : MonoBehaviour {
 				int aux = GameObject.Find("Obstaculos").GetComponent<GeneraRocas>().actualMonsterNumber;
 				GameObject.Find("Obstaculos").GetComponent<GeneraRocas>().actualMonsterNumber = aux-1;
 
+
 			}else{
 				if(powerShield){
 					psCounter-=1;
@@ -224,6 +237,7 @@ public class PrincesavueScript : MonoBehaviour {
 					DestroyObject(collision.gameObject);
 					int aux = GameObject.Find("Obstaculos").GetComponent<GeneraRocas>().actualMonsterNumber;
 					GameObject.Find("Obstaculos").GetComponent<GeneraRocas>().actualMonsterNumber = aux-1;
+
 				}else{
 					if(powerVida){
 						powerVida=false;

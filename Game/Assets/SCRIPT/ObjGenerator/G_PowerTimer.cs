@@ -32,7 +32,7 @@ public class G_PowerTimer : MonoBehaviour {
 	void Update (){
 		int lrand = (int)(Random.Range (0, 100));
 		elapsetTime = elapsetTime + Time.deltaTime;
-		if (elapsetTime > 10) {
+		if (elapsetTime > 80) {
 			if (noTimer && lrand > range) {
 				CreatePrefab ();
 				noTimer = false;

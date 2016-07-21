@@ -32,7 +32,7 @@ public class G_PowerVida : MonoBehaviour {
 	void Update (){
 		int lrand = (int)(Random.Range (0, 100));
 		elapsetTime = elapsetTime + Time.deltaTime;
-		if (elapsetTime > 10) {
+		if (elapsetTime > 60) {
 			if (noPoweVida && lrand > range) {
 				CreatePrefab ();
 				noPoweVida = false;
