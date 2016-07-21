@@ -10,7 +10,8 @@ public class SalirScript : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		Application.Quit ();
+		if (Input.GetKeyDown(KeyCode.Escape)) 
+			Application.Quit ();
 	}
 
 	public void onClick(){
